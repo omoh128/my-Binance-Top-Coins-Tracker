@@ -1,4 +1,4 @@
-#My Trading Bot
+My Trading Bot
 This is a trading bot that monitors the top-performing coins on Binance and sends notifications when there is a significant increase in buying volume within the last minute.
 
 Installation
