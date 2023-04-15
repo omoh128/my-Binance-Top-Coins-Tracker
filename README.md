@@ -1,27 +1,23 @@
-My Trading Bot
-This is a trading bot that monitors the top-performing coins on Binance and sends notifications when there is a significant increase in buying volume within the last minute.
+Binance Top Coins Tracker
+This is a simple web app that monitors the top performing coins on Binance and notifies the user when a coin experiences a significant increase in buying volume within the last minute.
 
 Installation
-To install this app, follow these steps:
+To install the app, simply clone the repository and run npm install to install the dependencies:
 
-Clone this repository to your local machine using git clone https://github.com/your-username/my-trading-bot.git.
-Install the required dependencies by running npm install in the project root directory.
-Create a .env file in the project root directory and add your Binance API key and secret. You can get these from your Binance account settings.
-Start the app by running npm start.
+bash
+Copy code
+git clone https://github.com/your-username/binance-top-coins-tracker.git
+cd binance-top-coins-tracker
+npm install
 Usage
-Once the app is running, you can open it in your web browser by going to http://localhost:3000. The app will display a list of the top-performing coins on Binance, along with their current prices and trading volumes. If a coin experiences a significant increase in buying volume within the last minute, the app will send a desktop notification.
+To start the app, run npm start:
 
-Contributing
-If you would like to contribute to this project, please follow these guidelines:
+sql
+Copy code
+npm start
+This will start the app on http://localhost:3000. You can view the app in your web browser by navigating to that URL.
 
-Fork the repository to your own account.
-Create a new branch for your changes.
-Make your changes and commit them with clear commit messages.
-Push your changes to your fork.
-Create a pull request to merge your changes into the main repository.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+When you first load the app, it will display a list of the top performing coins on Binance. If a coin experiences a significant increase in buying volume within the last minute, the app will display a notification with the coin's symbol and the volume increase.
 
-
-
-
+Credits
+It uses the Binance API to retrieve real-time data on cryptocurrency prices and volumes. The app was built using React and Node.js.

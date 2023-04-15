@@ -1,0 +1,37 @@
+.top-coins {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .coin-card {
+    width: 250px;
+    height: 150px;
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .coin-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .coin-card p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .coin-card .price {
+    color: green;
+  }
+  
+  .coin-card .price.down {
+    color: red;
+  }
+  

@@ -1,25 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import CoinList from './components';
-import { getTopCoins } from './services/binance'
+import React, { useState, useEffect } from 'react';
+import TopCoins from './components/TopCoins';
+import Notification from './components/Notification';
 import './App.css';
 
 const App = () => {
-  const [coins, setCoins] = useState([])
+  const [notifSymbol, setNotifSymbol] = useState('');
+  const [notifVolume, setNotifVolume] = useState(0);
 
   useEffect(() => {
-    const fetchTopCoins = async () => {
-      const coins = await getTopCoins()
-      setCoins(coins)
-    }
+    const interval = setInterval(() => {
+      const fetchVolumeData = async () => {
+        const response = await fetch('https://api.binance.com/api/v3/ticker/24hr');
+        const coins = await response.json();
+        coins.forEach(coin => {
+          if (coin.symbol === notifSymbol && coin.volume > notifVolume) {
+            setNotifVolume(coin.volume);
+          }
+          else if (coin.volume > 100000 && coin.volume > notifVolume) {
+            setNotifSymbol(coin.symbol);
+            setNotifVolume(coin.volume);
+          }
+        });
+      };
+      fetchVolumeData();
+    }, 60000);
 
-    fetchTopCoins()
-  }, [])
+    return () => clearInterval(interval);
+  }, [notifSymbol, notifVolume]);
+
   return (
-    <div>
-      <h1>Top Performing Coins</h1>
-      <CoinList coins={coins} />
+    <div className="app">
+      {notifVolume > 0 && <Notification symbol={notifSymbol} volume={notifVolume} />}
+      <TopCoins limit={10} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
