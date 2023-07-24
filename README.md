@@ -6,7 +6,7 @@ To install the app, simply clone the repository and run npm install to install t
 
 bash
 Copy code
-git clone https://github.com/your-username/binance-top-coins-tracker.git
+git clone https://github.com/omoh128/binance-top-coins-tracker.git
 cd binance-top-coins-tracker
 npm install
 Usage
